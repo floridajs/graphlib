@@ -1,42 +1,53 @@
 {
-  "name": "graphlib",
-  "version": "2.1.2-pre",
+  "name": "florida-graphlib",
+  "version": "3.0.0",
   "description": "A directed and undirected multi-graph library",
-  "author": "Chris Pettitt <cpettitt@gmail.com>",
+  "scripts": {
+    "test": "jest",
+    "test:benchmark": "babel-node scripts/bench",
+    "build": "rm -rf build; NODE_ENV=production babel src --ignore spec.js,spec.util.js --out-dir build"
+  },
   "main": "index.js",
   "keywords": [
     "graph",
     "algorithms"
   ],
   "dependencies": {
-    "lodash": "^4.11.1"
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
     "benchmark": "^1.0.0",
     "browserify": "^13.0.0",
     "chai": "^1.9.2",
-    "istanbul": "^0.3.2",
-    "jscs": "^1.7.3",
-    "jshint": "^2.5.6",
-    "jshint-stylish": "^1.0.0",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.0",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-mocha": "^0.2.0",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-requirejs": "^0.2.5",
-    "karma-safari-launcher": "^0.1.1",
-    "mocha": "^1.21.5",
-    "phantomjs-prebuilt": "^2.1.7",
-    "requirejs": "^2.1.22",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4",
     "seedrandom": "^2.4.2",
     "semver": "^4.1.0",
-    "sprintf": "^0.1.4",
-    "uglify-js": "^2.4.15"
+    "sprintf": "^0.1.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cpettitt/graphlib.git"
+    "url": "https://github.com/floridajs/graphlib.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "testMatch": [
+      "**/?(*.)(spec|test).js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
 }
