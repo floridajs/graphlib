@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import * as _ from 'lodash'
 
 const DEFAULT_EDGE_NAME = '\x00'
@@ -61,7 +61,7 @@ export class Graph implements IGraph {
     Object.defineProperties(this, {
       isDirected: {value: directed},
       isMultigraph: {value: multigraph},
-      isCompound: {value: compound},
+      isCompound: {value: compound}
     })
 
     if (this.isCompound) {
@@ -191,8 +191,8 @@ export class Graph implements IGraph {
       // Coerce parent to string
       parent = _parent + ''
       for (let ancestor = parent;
-           !_.isUndefined(ancestor);
-           ancestor = this.parent(ancestor)) {
+        !_.isUndefined(ancestor);
+        ancestor = this.parent(ancestor)) {
         if (ancestor === v) {
           throw new Error(`Setting ${parent} as parent of ${v} would create create a cycle`)
         }
@@ -273,7 +273,7 @@ export class Graph implements IGraph {
     const copy = new this.constructor({
       directed: this.isDirected,
       multigraph: this.isMultigraph,
-      compound: this.isCompound,
+      compound: this.isCompound
     })
 
     copy.setGraph(this.graph())
